@@ -1,13 +1,23 @@
-<h1> Sistema de Galpões e Estoque </h1>
+<section id='warehouses'>
+  <h2> Galpões </h2>
+  <% if @warehouses.empty? %>
+    <p> Não existem galpões cadastrados. </p>
 
-<h2> Galpões </h2>
-<% if @warehouses.empty? %>
-  <p> Não existem galpões cadastrados. </p>
-<% else %>
-  <% @warehouses.each do |warehouse| %>
-    <%= link_to warehouse.name, warehouse %>
-    Código: <%= warehouse.code %>
-    Cidade: <%= warehouse.city %>
-    <%= warehouse.area %> m2
+  <% else %>
+    <% @warehouses.each do |warehouse| %>
+      <div>
+        <h3><%= link_to warehouse.name, warehouse %></h3>
+
+        <dl>
+          <dt><strong>Código:</strong></dt>
+          <dd><%= warehouse.code %></dd>
+          <dt><strong>Cidade:</strong></dt>
+          <dd><%= warehouse.city %></dd>
+          <dt><strong>Área:</strong></dt>
+          <dd><%= warehouse.area %> m2</dd>
+        </dl>
+
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</section>
