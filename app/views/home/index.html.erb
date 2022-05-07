@@ -1,18 +1,15 @@
 <section id='warehouses'>
   <h2> Galpões </h2>
-  
   <div>
     <%= link_to 'Cadastrar galpão', new_warehouse_path %>
   </div>
 
   <% if @warehouses.empty? %>
     <p> Não existem galpões cadastrados. </p>
-
   <% else %>
     <% @warehouses.each do |warehouse| %>
       <div>
         <h3><%= link_to warehouse.name, warehouse %></h3>
-
         <dl>
           <dt><strong>Código:</strong></dt>
           <dd><%= warehouse.code %></dd>
@@ -21,7 +18,6 @@
           <dt><strong>Área:</strong></dt>
           <dd><%= warehouse.area %> m2</dd>
         </dl>
-
       </div>
     <% end %>
   <% end %>
