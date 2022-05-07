@@ -1,5 +1,10 @@
 <section id='warehouses'>
   <h2> Galpões </h2>
+  
+  <div>
+    <%= link_to 'Cadastrar galpão', new_warehouse_path %>
+  </div>
+
   <% if @warehouses.empty? %>
     <p> Não existem galpões cadastrados. </p>
 
