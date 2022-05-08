@@ -25,7 +25,7 @@ describe 'Usuário cadastra um galpão' do
     visit root_path
     click_on 'Cadastrar galpão'
     fields_and_content.each_pair { |field, content| fill_in field, with: content }
-    click_on 'Enviar'
+    click_on 'Criar Galpão'
 
     # Assert
     expect(current_path).to eq root_path
@@ -35,13 +35,14 @@ describe 'Usuário cadastra um galpão' do
 
   it 'com dados incompletos' do
     # Arrange
+    fields = %w[Nome Descrição Código Cidade Estado CEP Área]
 
     # Act
     visit root_path
     click_on 'Cadastrar galpão'
-    click_on 'Enviar'
+    click_on 'Criar Galpão'
 
     # Assert
-    expect(page).to have_content 'Galpão não cadastrado.'
+    fields.each { |field| expect(page).to have_content "#{field} não pode ficar em branco." }
   end
 end
