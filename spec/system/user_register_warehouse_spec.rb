@@ -44,6 +44,7 @@ describe 'Usuário cadastra um galpão' do
 
     # Assert
     fields.each { |field| expect(page).to have_content "#{field} não pode ficar em branco." }
+    expect(page).not_to have_content 'CEP não é válido.'
   end
 
   it 'com dados inválidos' do
