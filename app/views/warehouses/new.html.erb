@@ -4,52 +4,45 @@
   <div>
     <%= f.label :name %>
     <%= f.text_field :name %>
-    <% @warehouse.errors.full_messages_for(:name).each do |message| %>
-      <p><%= message + '.' %></p>
-    <% end %>
+    <p><%= "#{@warehouse.errors.full_messages_for(:name)[0]}." %></p>
   </div>
+
   <div>
     <%= f.label :description %>
     <%= f.text_area :description %>
-    <% @warehouse.errors.full_messages_for(:description).each do |message| %>
-      <p><%= message + '.' %></p>
-    <% end %>
+    <p><%= "#{@warehouse.errors.full_messages_for(:description)[0]}." %></p>
   </div>
+
   <div>
     <%= f.label :code %>
     <%= f.text_field :code %>
-    <% @warehouse.errors.full_messages_for(:code).each do |message| %>
-      <p><%= message + '.' %></p>
-    <% end %>
+    <p><%= "#{@warehouse.errors.full_messages_for(:code)[0]}." %></p>
   </div>
+
   <div>
     <%= f.label :city %>
     <%= f.text_field :city %>
-    <% @warehouse.errors.full_messages_for(:city).each do |message| %>
-      <p><%= message + '.' %></p>
-    <% end %>
+    <p><%= "#{@warehouse.errors.full_messages_for(:city)[0]}." %></p>
   </div>
+
   <div>
     <%= f.label :state %>
     <%= f.text_field :state %>
-    <% @warehouse.errors.full_messages_for(:state).each do |message| %>
-      <p><%= message + '.' %></p>
-    <% end %>
+    <p><%= "#{@warehouse.errors.full_messages_for(:state)[0]}." %></p>
   </div>
+
   <div>
     <%= f.label :cep %>
     <%= f.text_field :cep %>
-    <% @warehouse.errors.full_messages_for(:cep).each do |message| %>
-      <p><%= message + '.' %></p>
-    <% end %>
+    <p><%= "#{@warehouse.errors.full_messages_for(:cep)[0]}." %></p>
   </div>
+
   <div>
     <%= f.label :area %>
     <%= f.number_field :area %>
-    <% @warehouse.errors.full_messages_for(:area).each do |message| %>
-      <p><%= message + '.' %></p>
-    <% end %>
+    <p><%= "#{@warehouse.errors.full_messages_for(:area)[0]}." %></p>
   </div>
+
   <div>
     <%= f.submit %>
   </div>
