@@ -49,7 +49,7 @@ describe 'Usuário edita um galpão' do
     visit root_path
     click_on 'Rio'
     click_on 'Editar'
-    fields.each{ |field| fill_in field, with: '' }
+    fields.each { |field| fill_in field, with: '' }
     click_on 'Atualizar Galpão'
 
     # Assert
