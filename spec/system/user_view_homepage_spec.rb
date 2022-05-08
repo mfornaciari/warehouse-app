@@ -17,22 +17,16 @@ describe 'Usuário visita tela inicial' do
                      state: 'RJ', cep: '20000-000', area: 60_000)
     Warehouse.create(name: 'Maceió', description: 'Galpão da cidade de Maceió.', code: 'MCZ', city: 'Maceió',
                      state: 'RJ', cep: '30000-000', area: 50_000)
+    rio_content = ['Rio', 'Código: SDU', 'Cidade: Rio de Janeiro', '60000 m2']
+    maceio_content = ['Maceió', 'Código: MCZ', 'Cidade: Maceió', '50000 m2']
 
     # Act
     visit root_path
 
     # Assert
     expect(page).not_to have_content 'Não existem galpões cadastrados.'
-
-    expect(page).to have_content 'Rio'
-    expect(page).to have_content 'Código: SDU'
-    expect(page).to have_content 'Cidade: Rio de Janeiro'
-    expect(page).to have_content '60000 m2'
-
-    expect(page).to have_content 'Maceió'
-    expect(page).to have_content 'Código: MCZ'
-    expect(page).to have_content 'Cidade: Maceió'
-    expect(page).to have_content '50000 m2'
+    rio_content.each { |content| expect(page).to have_content content }
+    maceio_content.each { |content| expect(page).to have_content content }
   end
 
   it 'e não existem galpões cadastrados' do

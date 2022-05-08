@@ -18,6 +18,8 @@ describe 'Usuário cadastra um galpão' do
     fields_and_content = { 'Nome': 'Aeroporto SP', 'Descrição': 'Galpão destinado para cargas internacionais.',
                            'Código': 'GRU', 'Cidade': 'Guarulhos', 'Estado': 'SP', 'CEP': '15000-000',
                            'Área': '100000' }
+    index_content = ['Galpão cadastrado com sucesso.', 'Aeroporto SP', 'Código: GRU', 'Cidade: Guarulhos',
+                     'Área: 100000 m2']
 
     # Act
     visit root_path
@@ -27,11 +29,8 @@ describe 'Usuário cadastra um galpão' do
 
     # Assert
     expect(current_path).to eq root_path
-    expect(page).to have_content 'Galpão cadastrado com sucesso.'
-    expect(page).to have_content 'Aeroporto SP'
-    expect(page).to have_content 'Código: GRU'
-    expect(page).to have_content 'Cidade: Guarulhos'
-    expect(page).to have_content 'Área: 100000 m2'
+
+    index_content.each { |content| expect(page).to have_content content }
   end
 
   it 'com dados incompletos' do
