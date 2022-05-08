@@ -1,0 +1,61 @@
+<%= form_with model: @warehouse do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <% if @warehouse.errors.full_messages_for(:name).any? %>
+      <p><%= "#{@warehouse.errors.full_messages_for(:name)[0]}." %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+    <% if @warehouse.errors.full_messages_for(:description).any? %>
+      <p><%= "#{@warehouse.errors.full_messages_for(:description)[0]}." %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.label :code %>
+    <%= f.text_field :code %>
+    <% if @warehouse.errors.full_messages_for(:code).any? %>
+      <p><%= "#{@warehouse.errors.full_messages_for(:code)[0]}." %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+    <% if @warehouse.errors.full_messages_for(:city).any? %>
+      <p><%= "#{@warehouse.errors.full_messages_for(:city)[0]}." %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.label :state %>
+    <%= f.text_field :state %>
+    <% if @warehouse.errors.full_messages_for(:state).any? %>
+      <p><%= "#{@warehouse.errors.full_messages_for(:state)[0]}." %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.label :cep %>
+    <%= f.text_field :cep %>
+    <% if @warehouse.errors.full_messages_for(:cep).any? %>
+      <p><%= "#{@warehouse.errors.full_messages_for(:cep)[0]}." %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.label :area %>
+    <%= f.number_field :area %>
+    <% if @warehouse.errors.full_messages_for(:area).any? %>
+      <p><%= "#{@warehouse.errors.full_messages_for(:area)[0]}." %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
