@@ -7,11 +7,16 @@
   <dl>
     <dt><strong>Código: </strong></dt>
     <dd><%= @warehouse.code %></dd>
+
     <dt><strong>Endereço: </strong></dt>
     <dd><%= "#{@warehouse.city}, #{@warehouse.state}. CEP: #{@warehouse.cep}" %></dd>
+
     <dt><strong>Área: </strong></dt>
     <dd><%= @warehouse.area %> m2</dd> 
   </dl>
 </div>
 
-<%= link_to 'Voltar', root_path %>
+<div>
+  <p><%= link_to 'Editar', edit_warehouse_path(@warehouse) %></p>
+  <p><%= link_to 'Voltar', root_path %></p>
+</div>
