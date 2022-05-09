@@ -35,15 +35,18 @@ describe 'Usuário cadastra um galpão' do
 
   it 'com dados incompletos' do
     # Arrange
-    fields = %w[Nome Descrição Código Cidade Estado CEP Área]
+    blank_fields = %w[Código Cidade Estado CEP]
+    filled_fields = { 'Nome': 'Rio', 'Descrição': 'Galpão carioca.', 'Área': '10000' }
 
     # Act
     visit root_path
     click_on 'Cadastrar galpão'
+    filled_fields.each_pair { |field, content| fill_in field, with: content }
     click_on 'Criar Galpão'
 
     # Assert
-    fields.each { |field| expect(page).to have_content "#{field} não pode ficar em branco." }
+    blank_fields.each { |field| expect(page).to have_content "#{field} não pode ficar em branco." }
+    filled_fields.each_pair { |field, content| expect(page). to have_field field, with: content }
     expect(page).not_to have_content 'CEP não é válido.'
   end
 
