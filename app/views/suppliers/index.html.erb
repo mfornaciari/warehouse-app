@@ -6,7 +6,7 @@
   <% else %>
     <% @suppliers.each do |supplier| %>
       <div>
-        <h3><%= supplier.brand_name %></h3>
+        <h3><%= link_to supplier.brand_name, supplier %></h3>
       </div>
     <% end %>
   <% end %>

@@ -1,0 +1,42 @@
+<% address = @supplier.address || '' %>
+<% separator = address.empty? ? '' : ' - ' %>
+<% city = @supplier.city || '' %>
+<% state = @supplier.state || '' %>
+<% slash = state.empty? ? '' : '/' %>
+<% dot = [address, city, state].all? { |item| item.empty? } ? '' : '. ' %>
+<% cep = @supplier.cep ? "CEP: #{@supplier.cep}" : '' %>
+<% full_address = "#{address}#{separator}#{city}#{slash}#{state}#{dot}#{cep}" %>
+
+<div>
+  <h2><%= @supplier.brand_name %></h2>
+</div>
+
+<div>
+  <dl>
+    <dt><strong>Nome fantasia: </strong></dt>
+    <dd><%= @supplier.brand_name %></dd>
+
+    <dt><strong>Razão social: </strong></dt>
+    <dd><%= @supplier.corporate_name %></dd>
+
+    <dt><strong>CNPJ: </strong></dt>
+    <dd><%= @supplier.registration_number %></dd>
+  
+    <% unless full_address.empty? %>
+      <dt><strong>Endereço: </strong></dt>
+      <dd><%= full_address %></dd>
+    <% end %>
+
+    <dt><strong>Email: </strong></dt>
+    <dd><%= @supplier.email %></dd>
+
+    <% if @supplier.phone %>
+      <dt><strong>Telefone: </strong></dt>
+      <dd><%= @supplier.phone %></dd> 
+    <% end %>
+  </dl>
+</div>
+
+<div>
+  <p><%= link_to 'Voltar', root_path %></p>
+</div>
