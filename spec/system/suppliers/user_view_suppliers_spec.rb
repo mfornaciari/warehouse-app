@@ -6,11 +6,15 @@ describe 'Usuário visita tela de fornecedores' do
 
     # Act
     visit root_path
-    click_on 'Fornecedores'
+    within 'nav' do
+      click_on 'Fornecedores'
+    end
 
     # Assert
     expect(current_path).to eq suppliers_path
-    expect(page).to have_content 'Fornecedores', count: 2
+    within('section#suppliers') do
+      expect(page).to have_content 'Fornecedores'
+    end
   end
 
   it 'e volta para tela inicial' do
@@ -18,7 +22,9 @@ describe 'Usuário visita tela de fornecedores' do
 
     # Act
     visit root_path
-    click_on 'Fornecedores'
+    within 'nav' do
+      click_on 'Fornecedores'
+    end
     click_on 'Voltar'
 
     # Assert
