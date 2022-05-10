@@ -22,7 +22,7 @@ describe 'Usuário visita tela de detalhes de um fornecedor' do
   it 'e não vê detalhes não informados' do
     # Arrange
     Supplier.create!(brand_name: 'ACME', corporate_name: 'ACME Ltda.', registration_number: 1_234_567_890_123,
-                     email: 'contato@acme.com')
+                     address: '', city: '', state: '', cep: '', email: 'contato@acme.com', phone: '')
 
     # Act
     visit root_path

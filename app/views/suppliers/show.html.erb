@@ -1,11 +1,8 @@
-<% address = @supplier.address || '' %>
-<% separator = address.empty? ? '' : ' - ' %>
-<% city = @supplier.city || '' %>
-<% state = @supplier.state || '' %>
-<% slash = state.empty? ? '' : '/' %>
-<% dot = [address, city, state].all? { |item| item.empty? } ? '' : '. ' %>
-<% cep = @supplier.cep ? "CEP: #{@supplier.cep}" : '' %>
-<% full_address = "#{address}#{separator}#{city}#{slash}#{state}#{dot}#{cep}" %>
+<% separator = @supplier.address.empty? ? '' : ' - ' %>
+<% slash = @supplier.state.empty? ? '' : '/' %>
+<% dot = [@supplier.address, @supplier.city, @supplier.state].all? { |item| item.empty? } ? '' : '. ' %>
+<% cep = @supplier.cep.empty? ? '' : "CEP: #{@supplier.cep}" %>
+<% full_address = "#{@supplier.address}#{separator}#{@supplier.city}#{slash}#{@supplier.state}#{dot}#{cep}" %>
 
 <div>
   <h2><%= @supplier.brand_name %></h2>
@@ -30,7 +27,7 @@
     <dt><strong>Email: </strong></dt>
     <dd><%= @supplier.email %></dd>
 
-    <% if @supplier.phone %>
+    <% unless @supplier.phone.empty? %>
       <dt><strong>Telefone: </strong></dt>
       <dd><%= @supplier.phone %></dd> 
     <% end %>
