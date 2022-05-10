@@ -18,7 +18,8 @@ describe 'Usuário cadastra um fornecedor' do
   it 'com sucesso' do
     # Arrange
     fields_and_content = { 'Nome fantasia': 'ACME', 'Razão social': 'ACME Ltda.', 'CNPJ': '1234567890123',
-                           'E-mail': 'contato@acme.com' }
+                           'Endereço': '', 'Cidade': '', 'Estado': '', 'CEP': '', 'E-mail': 'contato@acme.com',
+                           'Telefone': '' }
 
     # Act
     visit root_path
@@ -54,11 +55,9 @@ describe 'Usuário cadastra um fornecedor' do
   it 'com CNPJ repetido' do
     # Arrange
     Supplier.create!(brand_name: 'ACME', corporate_name: 'ACME Ltda.', registration_number: 1_234_567_890_123,
-                     email: 'contato@acme.com')
+                     address: '', city: '', state: '', cep: '', email: 'contato@acme.com', phone: '')
     repeated_number_supplier = { 'Nome fantasia': 'Stark', 'Razão social': 'Stark Industries Brasil Ltda.',
                                  'CNPJ': '1234567890123', 'E-mail': 'contato@stark.com.br' }
-    invalid_number_supplier = { 'Nome fantasia': 'Campus', 'Razão social': 'Campus S/A',
-                                'CNPJ': '123', 'E-mail': 'contato@campus.com' }
 
     # Act
     visit root_path
@@ -74,7 +73,7 @@ describe 'Usuário cadastra um fornecedor' do
   it 'com CNPJ inválido' do
     # Arrange
     Supplier.create!(brand_name: 'ACME', corporate_name: 'ACME Ltda.', registration_number: 1_234_567_890_123,
-                     email: 'contato@acme.com')
+                     address: '', city: '', state: '', cep: '', email: 'contato@acme.com', phone: '')
     invalid_number_supplier = { 'Nome fantasia': 'Campus', 'Razão social': 'Campus S/A',
                                 'CNPJ': '123', 'E-mail': 'contato@campus.com' }
 
