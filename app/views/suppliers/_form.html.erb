@@ -1,0 +1,77 @@
+<%= form_with model: @supplier do |f| %>
+  <div>
+    <%= f.label :brand_name %>
+    <%= f.text_field :brand_name %>
+    <% if @supplier.errors.full_messages_for(:brand_name).any? %>
+      <p><%= "#{@supplier.errors.full_messages_for(:brand_name)[0]}." %></p>
+    <% end %>
+  </div>
+
+    <div>
+    <%= f.label :corporate_name %>
+    <%= f.text_field :corporate_name %>
+    <% if @supplier.errors.full_messages_for(:corporate_name).any? %>
+      <p><%= "#{@supplier.errors.full_messages_for(:corporate_name)[0]}." %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.label :registration_number %>
+    <%= f.number_field :registration_number %>
+    <% if @supplier.errors.full_messages_for(:registration_number).any? %>
+      <p><%= "#{@supplier.errors.full_messages_for(:registration_number)[0]}." %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+    <% if @supplier.errors.full_messages_for(:address).any? %>
+      <p><%= "#{@supplier.errors.full_messages_for(:address)[0]}." %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+    <% if @supplier.errors.full_messages_for(:city).any? %>
+      <p><%= "#{@supplier.errors.full_messages_for(:city)[0]}." %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.label :state %>
+    <%= f.text_field :state %>
+    <% if @supplier.errors.full_messages_for(:state).any? %>
+      <p><%= "#{@supplier.errors.full_messages_for(:state)[0]}." %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.label :cep %>
+    <%= f.text_field :cep %>
+    <% if @supplier.errors.full_messages_for(:cep).any? %>
+      <p><%= "#{@supplier.errors.full_messages_for(:cep)[0]}." %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+    <% if @supplier.errors.full_messages_for(:email).any? %>
+      <p><%= "#{@supplier.errors.full_messages_for(:email)[0]}." %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.label :phone %>
+    <%= f.text_field :phone %>
+    <% if @supplier.errors.full_messages_for(:phone).any? %>
+      <p><%= "#{@supplier.errors.full_messages_for(:phone)[0]}." %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

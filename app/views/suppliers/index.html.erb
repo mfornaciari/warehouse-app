@@ -1,12 +1,15 @@
 <section id='suppliers'>
   <h2>Fornecedores</h2>
+  <div>
+    <%= link_to 'Cadastrar fornecedor', new_supplier_path %>
+  </div>
 
   <% if @suppliers.empty? %>
     <p>Não existem fornecedores cadastrados.</p>
   <% else %>
     <% @suppliers.each do |supplier| %>
       <div>
-        <h3><%= link_to supplier.brand_name, supplier %></h3>
+        <p><strong><%= link_to supplier.brand_name, supplier %></strong></p>
       </div>
     <% end %>
   <% end %>
