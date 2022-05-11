@@ -7,7 +7,7 @@ describe 'Usuário visita tela de detalhes de um fornecedor' do
                      address: 'Avenida A, 10', city: 'Natal', state: 'RN', cep: '12345-678',
                      email: 'contato@acme.com', phone: '91234-5678')
     details_content = ['Nome fantasia: ACME', 'Razão social: ACME Ltda.', 'CNPJ: 1234567890123',
-                       'Endereço: Avenida A, 10 - Natal/RN. CEP: 12345-678', 'Email: contato@acme.com',
+                       'Endereço: Avenida A, 10 - Natal/RN. CEP: 12345-678', 'E-mail: contato@acme.com',
                        'Telefone: 91234-5678']
 
     # Act

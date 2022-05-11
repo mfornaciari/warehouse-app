@@ -24,7 +24,7 @@
       <dd><%= full_address %></dd>
     <% end %>
 
-    <dt><strong>Email: </strong></dt>
+    <dt><strong>E-mail: </strong></dt>
     <dd><%= @supplier.email %></dd>
 
     <% unless @supplier.phone.empty? %>
@@ -32,6 +32,10 @@
       <dd><%= @supplier.phone %></dd> 
     <% end %>
   </dl>
+</div>
+
+<div>
+  <p><%= link_to 'Editar', edit_supplier_path(@supplier) %></p>
 </div>
 
 <div>
