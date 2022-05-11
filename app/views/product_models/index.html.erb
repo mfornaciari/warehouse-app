@@ -1,0 +1,25 @@
+<section id='product_models'>
+  <div>
+    <h2>Modelos de produto</h2>
+  </div>
+
+  <% if @product_models.empty? %>
+    <p>Não existem modelos cadastrados.</p>
+  <% else %>
+    <% @product_models.each do |product_model| %>
+      <div>
+        <p><strong><%= product_model.name %></strong></p>
+        <dl>
+          <dt>Código:</dt>
+          <dd><%= product_model.code %></dd>
+          <dt>Fornecedor:</dt>
+          <dd><%= product_model.supplier.brand_name %></dd>
+        </dl>
+      </div>
+    <% end %>
+  <% end %>
+</section>
+
+<div>
+  <p><%= link_to 'Voltar', root_path %></p>
+</div>
