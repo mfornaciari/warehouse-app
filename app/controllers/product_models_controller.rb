@@ -1,5 +1,5 @@
 class ProductModelsController < ApplicationController
-  before_action :set_product_model, only: %i[show]
+  before_action :set_product_model, only: %i[show edit update]
 
   def index
     @product_models = ProductModel.all
@@ -18,6 +18,17 @@ class ProductModelsController < ApplicationController
     else
       flash.now[:notice] = 'Modelo não cadastrado.'
       render 'new'
+    end
+  end
+
+  def edit; end
+
+  def update
+    if @product_model.update(product_model_params)
+      redirect_to @product_model, notice: 'Modelo atualizado com sucesso.'
+    else
+      flash.now[:notice] = 'Modelo não atualizado.'
+      render 'edit'
     end
   end
 
