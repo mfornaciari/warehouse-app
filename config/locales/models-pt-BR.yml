@@ -3,6 +3,7 @@ pt-BR:
     models:
       warehouse: Galpão
       supplier: Fornecedor
+      product_model: Modelo de produto
     attributes:
       warehouse:
         name: Nome
@@ -22,3 +23,11 @@ pt-BR:
         cep: CEP
         email: E-mail
         phone: Telefone
+      product_model:
+        name: Nome
+        code: Código
+        supplier: Fornecedor
+        weight: Peso
+        height: Altura
+        width: Largura
+        depth: Profundidade

@@ -1,0 +1,61 @@
+<%= form_with model: @product_model do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <% if @product_model.errors.full_messages_for(:name).any? %>
+      <p><%= "#{@product_model.errors.full_messages_for(:name)[0]}." %></p>
+    <% end %>
+  </div>
+
+    <div>
+    <%= f.label :code %>
+    <%= f.text_field :code %>
+    <% if @product_model.errors.full_messages_for(:code).any? %>
+      <p><%= "#{@product_model.errors.full_messages_for(:code)[0]}." %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.label :supplier_id, Supplier.model_name.human %>
+    <%= f.collection_select :supplier_id, Supplier.order(:brand_name), :id, :brand_name %>
+    <% if @product_model.errors.full_messages_for(:supplier).any? %>
+      <p><%= "#{@product_model.errors.full_messages_for(:supplier)[0]}." %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.label :weight %>
+    <%= f.number_field :weight %>
+    <% if @product_model.errors.full_messages_for(:weight).any? %>
+      <p><%= "#{@product_model.errors.full_messages_for(:weight)[0]}." %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.label :height %>
+    <%= f.number_field :height %>
+    <% if @product_model.errors.full_messages_for(:height).any? %>
+      <p><%= "#{@product_model.errors.full_messages_for(:height)[0]}." %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.label :width %>
+    <%= f.number_field :width %>
+    <% if @product_model.errors.full_messages_for(:width).any? %>
+      <p><%= "#{@product_model.errors.full_messages_for(:width)[0]}." %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.label :depth %>
+    <%= f.number_field :depth %>
+    <% if @product_model.errors.full_messages_for(:depth).any? %>
+      <p><%= "#{@product_model.errors.full_messages_for(:depth)[0]}." %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
