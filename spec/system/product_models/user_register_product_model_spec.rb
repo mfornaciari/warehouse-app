@@ -16,9 +16,8 @@ describe 'Usuário cadastra um modelo de produto' do
 
   it 'com sucesso' do
     # Arrange
-    acme = Supplier.create!(brand_name: 'ACME', corporate_name: 'ACME Ltda.',
-                            registration_number: 1_234_567_890_123, address: '', city: '', state: '', cep: '',
-                            email: 'contato@acme.com', phone: '')
+    Supplier.create!(brand_name: 'ACME', corporate_name: 'ACME Ltda.', registration_number: 1_234_567_890_123,
+                     address: '', city: '', state: '', cep: '', email: 'contato@acme.com', phone: '')
     fields_and_content = { 'Nome': 'Notebook', 'Código': 'NOTE-MARCA-123456789', 'Peso': '2000',
                            'Altura': '15', 'Largura': '25', 'Profundidade': '10' }
 
@@ -38,6 +37,8 @@ describe 'Usuário cadastra um modelo de produto' do
 
   it 'com dados incompletos' do
     # Arrange
+    Supplier.create!(brand_name: 'ACME', corporate_name: 'ACME Ltda.', registration_number: 1_234_567_890_123,
+                     address: '', city: '', state: '', cep: '', email: 'contato@acme.com', phone: '')
     blank_fields = %w[Código Peso Altura Largura Profundidade]
 
     # Act
