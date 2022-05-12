@@ -1,0 +1,24 @@
+<div>
+  <h2><%= @product_model.name %></h2>
+</div>
+
+<div>
+  <p><strong><%= @product_model.name %> </strong></p>
+  <dl>
+    <dt><strong>Código: </strong></dt>
+    <dd><%= @product_model.code %></dd>
+
+    <dt><strong>Fornecedor: </strong></dt>
+    <dd><%= @product_model.supplier.brand_name %></dd>
+
+    <dt><strong>Peso: </strong></dt>
+    <dd><%= @product_model.weight %> g</dd>
+
+    <dt><strong>Dimensões: </strong></dt>
+    <dd><%= "#{@product_model.height} cm de altura X #{@product_model.width} cm de largura X #{@product_model.depth} cm de profundidade" %></dd>
+  </dl>
+</div>
+
+<div>
+  <p><%= link_to 'Voltar', root_path %></p>
+</div>

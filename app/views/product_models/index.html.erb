@@ -8,7 +8,7 @@
   <% else %>
     <% @product_models.each do |product_model| %>
       <div>
-        <p><strong><%= product_model.name %></strong></p>
+        <p><strong><%= link_to product_model.name, product_model %></strong></p>
         <dl>
           <dt>Código:</dt>
           <dd><%= product_model.code %></dd>
