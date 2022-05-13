@@ -2,7 +2,6 @@ require 'rails_helper'
 
 describe 'Usuário remove um galpão' do
   it 'com sucesso' do
-    # Arrange
     Warehouse.create!(name: 'Rio', description: 'Galpão da cidade do Rio.', code: 'SDU', city: 'Rio de Janeiro',
                       state: 'RJ', cep: '20000-000', area: 60_000)
     Warehouse.create!(name: 'Maceió', description: 'Galpão da cidade de Maceió.', code: 'MCZ', city: 'Maceió',
@@ -10,12 +9,10 @@ describe 'Usuário remove um galpão' do
     rio_content = ['Rio', 'Código: SDU', 'Cidade: Rio de Janeiro', '60000 m2']
     maceio_content = ['Maceió', 'Código: MCZ', 'Cidade: Maceió', '50000 m2']
 
-    # Act
     visit root_path
     click_on 'Rio'
     click_on 'Remover'
 
-    # Assert
     expect(current_path).to eq root_path
     expect(page).to have_content 'Galpão removido com sucesso.'
     rio_content.each { |content| expect(page).not_to have_content content }
